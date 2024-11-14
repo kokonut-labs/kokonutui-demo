@@ -48,7 +48,7 @@ export default function Sidebar() {
                     </Link>
                 </div>
 
-                <div className="space-y-4">*/}
+                <div className="space-y-4">
                     <div className="px-2">
                         <div className="px-2 mb-1 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                             Overview
@@ -83,10 +83,10 @@ export default function Sidebar() {
                                 Projects
                             </a>
                         </div>
-                </div>
+                    </div>
 
-                <div className="px-3">
-                    <div className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                    <div className="px-3">
+                        <div className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                             Finance
                         </div>
                         <div className="space-y-1">
