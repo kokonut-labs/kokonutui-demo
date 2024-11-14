@@ -111,19 +111,17 @@ export default function Profile01({
                             </Link>
                         ))}
 
-                        <button
-                            type="button"
+                        <Link
+                            href="/"
                             className="w-full flex items-center justify-between p-2 
                                 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 
                                 rounded-lg transition-colors duration-200"
                         >
-                            <Link href="/" className="flex items-center gap-2">
-                                <LogOut className="w-4 h-4" />
-                                <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                    Logout
-                                </span>
-                            </Link>
-                        </button>
+                            <LogOut className="w-4 h-4" />
+                            <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                                Logout
+                            </span>
+                        </Link>
                     </div>
                 </div>
             </div>
