@@ -25,7 +25,6 @@ export default function Sidebar() {
 
     return (
         <>
-            {/* Mobile Menu Button */}
             <button
                 type="button"
                 className="lg:hidden fixed top-4 left-4 z-[70] p-2 rounded-lg bg-white dark:bg-[#0F0F12] shadow-md"
@@ -33,8 +32,6 @@ export default function Sidebar() {
             >
                 <Menu className="h-6 w-6 text-gray-600 dark:text-gray-300" />
             </button>
-
-            {/* Sidebar Navigation */}
             <nav
                 className={`
                 fixed inset-y-0 left-0 z-[70] w-[220px] bg-white dark:bg-[#0F0F12] transform transition-transform duration-200 ease-in-out
@@ -42,7 +39,6 @@ export default function Sidebar() {
                 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"}
             `}
             >
-                {/* Logo/Brand - Adjusted padding */}
                 <div className="px-4 py-4 mb-4">
                     <Link
                         href="/me"
@@ -52,19 +48,12 @@ export default function Sidebar() {
                     </Link>
                 </div>
 
-                {/* Menu Categories - Adjusted spacing */}
-                <div className="space-y-4">
-                    {/* Categories remain the same, but adjust these classes: */}
+                <div className="space-y-4">*/}
                     <div className="px-2">
-                        {" "}
-                        {/* Reduced padding */}
                         <div className="px-2 mb-1 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                             Overview
                         </div>
                         <div className="space-y-0.5">
-                            {" "}
-                            {/* Reduced spacing between items */}
-                            {/* For each menu item, adjust the padding: */}
                             <a
                                 href="/me"
                                 className="flex items-center px-2 py-1.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
@@ -94,11 +83,10 @@ export default function Sidebar() {
                                 Projects
                             </a>
                         </div>
-                    </div>
+                </div>
 
-                    {/* Finance Category */}
-                    <div className="px-3">
-                        <div className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                <div className="px-3">
+                    <div className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                             Finance
                         </div>
                         <div className="space-y-1">
@@ -126,7 +114,6 @@ export default function Sidebar() {
                         </div>
                     </div>
 
-                    {/* Team Category */}
                     <div className="px-3">
                         <div className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
                             Team
@@ -164,9 +151,7 @@ export default function Sidebar() {
                     </div>
                 </div>
 
-                {/* Bottom Section - Adjusted positioning and spacing */}
                 <div className="absolute bottom-4 left-2 right-2 px-2 pt-4 border-t border-gray-200 dark:border-[#1F1F23]">
-                    {/* Adjust padding for bottom items */}
                     <a
                         href="/settings"
                         className="flex items-center px-2 py-1.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
@@ -184,7 +169,6 @@ export default function Sidebar() {
                 </div>
             </nav>
 
-            {/* Overlay for mobile */}
             {isMobileMenuOpen && (
                 <div
                     className="fixed inset-0 bg-black bg-opacity-50 z-[65] lg:hidden"

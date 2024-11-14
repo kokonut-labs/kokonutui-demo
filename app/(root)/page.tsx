@@ -1,10 +1,10 @@
 import Block01 from "@/components/kokonutui/block-01";
 import Block01Navigation from "@/components/kokonutui/block-01-nav";
 import Block01Content from "@/components/kokonutui/block-01-content";
-import Pricing_01 from "@/components/kokonutui/pricing-01";
 import Faq02 from "@/components/kokonutui/faq-02";
 import { Github, Twitter, Linkedin } from "lucide-react";
 import AlertLanding from "@/components/alert-landing";
+import Pricing_04 from "@/components/kokonutui/pricing-04";
 
 export default function Home() {
     return (
@@ -30,49 +30,7 @@ export default function Home() {
                     </div>
 
                     <div className="flex flex-col md:flex-row gap-8">
-                        <Pricing_01
-                            tier="Starter"
-                            price={{
-                                monthly: 29,
-                                yearly: 290,
-                            }}
-                            description="Perfect for individuals and small teams getting started."
-                            features={[
-                                {
-                                    name: "Up to 5 team members",
-                                    included: true,
-                                },
-                                { name: "Basic analytics", included: true },
-                                {
-                                    name: "Standard integrations",
-                                    included: true,
-                                },
-                                { name: "Email support", included: true },
-                                { name: "API access", included: false },
-                                { name: "Custom branding", included: false },
-                            ]}
-                        />
-
-                        <Pricing_01
-                            tier="Enterprise"
-                            price={{
-                                monthly: 99,
-                                yearly: 990,
-                            }}
-                            description="For large organizations that need advanced features and support."
-                            features={[
-                                {
-                                    name: "Unlimited team members",
-                                    included: true,
-                                },
-                                { name: "Advanced analytics", included: true },
-                                { name: "Custom integrations", included: true },
-                                { name: "API access", included: true },
-                                { name: "24/7 phone support", included: true },
-                                { name: "Custom branding", included: true },
-                            ]}
-                            popular={true}
-                        />
+                        <Pricing_04 />
                     </div>
                 </div>
             </section>
