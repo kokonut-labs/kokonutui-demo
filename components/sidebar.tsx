@@ -13,150 +13,184 @@ import {
     Video,
     Settings,
     HelpCircle,
+    Menu,
 } from "lucide-react";
 
 import { Home } from "lucide-react";
-
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function Sidebar() {
-    const router = useRouter();
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
     return (
-        <nav className="h-full py-6 text-gray-600 dark:text-gray-300">
-            {/* Logo/Brand */}
-            <div className="px-6 mb-8">
-                <h1
-                    className="text-xl font-bold hover:cursor-pointer text-gray-900 dark:text-white"
-                    onClick={() => router.push("/me")}
-                >
-                    Demo
-                </h1>
-            </div>
+        <>
+            {/* Mobile Menu Button */}
+            <button
+                type="button"
+                className="lg:hidden fixed top-4 left-4 z-[70] p-2 rounded-lg bg-white dark:bg-[#0F0F12] shadow-md"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+                <Menu className="h-6 w-6 text-gray-600 dark:text-gray-300" />
+            </button>
 
-            {/* Menu Categories */}
-            <div className="space-y-6">
-                {/* Overview Category */}
-                <div className="px-3">
-                    <div className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                        Overview
+            {/* Sidebar Navigation */}
+            <nav
+                className={`
+                fixed inset-y-0 left-0 z-[70] w-[220px] bg-white dark:bg-[#0F0F12] transform transition-transform duration-200 ease-in-out
+                lg:translate-x-0 lg:static lg:w-[220px] border-r border-gray-200 dark:border-[#1F1F23]
+                ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"}
+            `}
+            >
+                {/* Logo/Brand - Adjusted padding */}
+                <div className="px-4 py-4 mb-4">
+                    <Link
+                        href="/me"
+                        className="text-lg font-bold hover:cursor-pointer text-gray-900 dark:text-white"
+                    >
+                        Demo
+                    </Link>
+                </div>
+
+                {/* Menu Categories - Adjusted spacing */}
+                <div className="space-y-4">
+                    {/* Categories remain the same, but adjust these classes: */}
+                    <div className="px-2">
+                        {" "}
+                        {/* Reduced padding */}
+                        <div className="px-2 mb-1 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                            Overview
+                        </div>
+                        <div className="space-y-0.5">
+                            {" "}
+                            {/* Reduced spacing between items */}
+                            {/* For each menu item, adjust the padding: */}
+                            <a
+                                href="/me"
+                                className="flex items-center px-2 py-1.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
+                            >
+                                <Home className="h-4 w-4 mr-3" />
+                                Dashboard
+                            </a>
+                            <a
+                                href="/me"
+                                className="flex items-center px-2 py-1.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
+                            >
+                                <BarChart2 className="h-4 w-4 mr-3" />
+                                Analytics
+                            </a>
+                            <a
+                                href="/me"
+                                className="flex items-center px-2 py-1.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
+                            >
+                                <Building2 className="h-4 w-4 mr-3" />
+                                Organization
+                            </a>
+                            <a
+                                href="/me"
+                                className="flex items-center px-2 py-1.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
+                            >
+                                <Folder className="h-4 w-4 mr-3" />
+                                Projects
+                            </a>
+                        </div>
                     </div>
-                    <div className="space-y-1">
-                        <a
-                            href="/me"
-                            className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
-                        >
-                            <Home className="h-4 w-4 mr-3" />
-                            Dashboard
-                        </a>
-                        <a
-                            href="/me"
-                            className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
-                        >
-                            <BarChart2 className="h-4 w-4 mr-3" />
-                            Analytics
-                        </a>
-                        <a
-                            href="/me"
-                            className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
-                        >
-                            <Building2 className="h-4 w-4 mr-3" />
-                            Organization
-                        </a>
-                        <a
-                            href="/me"
-                            className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
-                        >
-                            <Folder className="h-4 w-4 mr-3" />
-                            Projects
-                        </a>
+
+                    {/* Finance Category */}
+                    <div className="px-3">
+                        <div className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                            Finance
+                        </div>
+                        <div className="space-y-1">
+                            <a
+                                href="/me"
+                                className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
+                            >
+                                <Wallet className="h-4 w-4 mr-3" />
+                                Transactions
+                            </a>
+                            <a
+                                href="/me"
+                                className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
+                            >
+                                <Receipt className="h-4 w-4 mr-3" />
+                                Invoices
+                            </a>
+                            <a
+                                href="/me"
+                                className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
+                            >
+                                <CreditCard className="h-4 w-4 mr-3" />
+                                Payments
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Team Category */}
+                    <div className="px-3">
+                        <div className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                            Team
+                        </div>
+                        <div className="space-y-1">
+                            <a
+                                href="/me"
+                                className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
+                            >
+                                <Users2 className="h-4 w-4 mr-3" />
+                                Members
+                            </a>
+                            <a
+                                href="/me"
+                                className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
+                            >
+                                <Shield className="h-4 w-4 mr-3" />
+                                Permissions
+                            </a>
+                            <a
+                                href="/me"
+                                className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
+                            >
+                                <MessagesSquare className="h-4 w-4 mr-3" />
+                                Chat
+                            </a>
+                            <a
+                                href="/me"
+                                className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
+                            >
+                                <Video className="h-4 w-4 mr-3" />
+                                Meetings
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                {/* Finance Category */}
-                <div className="px-3">
-                    <div className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                        Finance
-                    </div>
-                    <div className="space-y-1">
-                        <a
-                            href="/me"
-                            className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
-                        >
-                            <Wallet className="h-4 w-4 mr-3" />
-                            Transactions
-                        </a>
-                        <a
-                            href="/me"
-                            className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
-                        >
-                            <Receipt className="h-4 w-4 mr-3" />
-                            Invoices
-                        </a>
-                        <a
-                            href="/me"
-                            className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
-                        >
-                            <CreditCard className="h-4 w-4 mr-3" />
-                            Payments
-                        </a>
-                    </div>
+                {/* Bottom Section - Adjusted positioning and spacing */}
+                <div className="absolute bottom-4 left-2 right-2 px-2 pt-4 border-t border-gray-200 dark:border-[#1F1F23]">
+                    {/* Adjust padding for bottom items */}
+                    <a
+                        href="/settings"
+                        className="flex items-center px-2 py-1.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
+                    >
+                        <Settings className="h-4 w-4 mr-3" />
+                        Settings
+                    </a>
+                    <a
+                        href="/me"
+                        className="flex items-center px-2 py-1.5 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
+                    >
+                        <HelpCircle className="h-4 w-4 mr-3" />
+                        Help
+                    </a>
                 </div>
+            </nav>
 
-                {/* Team Category */}
-                <div className="px-3">
-                    <div className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                        Team
-                    </div>
-                    <div className="space-y-1">
-                        <a
-                            href="/me"
-                            className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
-                        >
-                            <Users2 className="h-4 w-4 mr-3" />
-                            Members
-                        </a>
-                        <a
-                            href="/me"
-                            className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
-                        >
-                            <Shield className="h-4 w-4 mr-3" />
-                            Permissions
-                        </a>
-                        <a
-                            href="/me"
-                            className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
-                        >
-                            <MessagesSquare className="h-4 w-4 mr-3" />
-                            Chat
-                        </a>
-                        <a
-                            href="/me"
-                            className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
-                        >
-                            <Video className="h-4 w-4 mr-3" />
-                            Meetings
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            {/* Bottom Section */}
-            <div className="absolute bottom-6 left-3 right-3 px-3 pt-6 border-t border-gray-200 dark:border-[#1F1F23]">
-                <a
-                    href="/settings"
-                    className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
-                >
-                    <Settings className="h-4 w-4 mr-3" />
-                    Settings
-                </a>
-                <a
-                    href="/me"
-                    className="flex items-center px-3 py-2 text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#1F1F23] rounded-lg transition-colors"
-                >
-                    <HelpCircle className="h-4 w-4 mr-3" />
-                    Help
-                </a>
-            </div>
-        </nav>
+            {/* Overlay for mobile */}
+            {isMobileMenuOpen && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-50 z-[65] lg:hidden"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                />
+            )}
+        </>
     );
 }

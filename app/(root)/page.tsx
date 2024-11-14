@@ -16,8 +16,8 @@ export default function Home() {
                 </Block01>
             </section>
 
-            <section className="h-screen w-full bg-gray-100 dark:bg-zinc-800 flex items-center justify-center">
-                <div className="max-w-4xl mx-auto">
+            <section className="min-h-screen w-full bg-gray-100 dark:bg-zinc-800 flex items-center justify-center py-24">
+                <div className="max-w-4xl mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-4xl font-bold text-zinc-900 dark:text-white mb-4">
                             Simple, transparent pricing
@@ -29,7 +29,7 @@ export default function Home() {
                         </p>
                     </div>
 
-                    <div className="flex gap-8">
+                    <div className="flex flex-col md:flex-row gap-8">
                         <Pricing_01
                             tier="Starter"
                             price={{

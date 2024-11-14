@@ -79,6 +79,7 @@ export default function List01({ items = ITEMS, className }: List01Props) {
                 "bg-white/50 dark:bg-zinc-900/50 backdrop-blur-xl",
                 "rounded-3xl border border-white/20 dark:border-zinc-800/50",
                 "shadow-md",
+                "relative z-[40]",
                 className
             )}
         >

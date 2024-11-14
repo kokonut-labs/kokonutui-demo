@@ -78,6 +78,7 @@ export default function List02({
                 "bg-white dark:bg-zinc-900/70",
                 "border border-zinc-100 dark:border-zinc-800",
                 "rounded-3xl shadow-xl backdrop-blur-xl",
+                "relative z-[40]",
                 className
             )}
         >

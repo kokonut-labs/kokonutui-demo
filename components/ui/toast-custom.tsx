@@ -24,7 +24,7 @@ export default function AlertItem() {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
-                className="fixed bottom-4 right-4 flex items-center gap-3  p-4 rounded-xl shadow-lg max-w-sm"
+                className="fixed bottom-4 right-4 flex items-center gap-3 p-4 rounded-xl shadow-lg max-w-sm z-[9999]"
             >
                 <Alert02 />
             </motion.div>
